@@ -3,7 +3,7 @@
   gather_facts: False
   tasks:
     - set_fact:
-        file_name: "{{ ansible_host }}-{{ date }}"
+        file_name: "{{ ansible_host }}-{{ lookup('pipe', 'date +%d.%m.%y') }}"
     - name: "Создаю backup файл..."
       routeros_command:
         commands: "/system backup save name={{ file_name }}"
