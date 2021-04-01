@@ -15,11 +15,8 @@ ansible-playbook data_get.yml
 Playbook file_get.yml - создаёт бэкап на микротике, скачивает его в текущую директорию и удаляет файл с микротика.
 
 ```bash
-ansible-playbook file_get.yml -e "date=<текущая дата>"
+ansible-playbook file_get.yml
 ```
-p.s.
-
- - обязательно необходимо указать extra_vars. Пока не придумал как лучше получать текущую дату )
 
 ## Info
 
