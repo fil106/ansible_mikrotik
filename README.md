@@ -12,6 +12,8 @@ ansible-playbook data_get.yml
 
 ### Скачиваем бэкап с микротика
 
+Playbook file_get.yml - создаёт бэкап на микротике, скачивает его в текущую директорию и удаляет файл с микротика.
+
 ```bash
 ansible-playbook file_get.yml -e "date=<текущая дата>"
 ```
@@ -21,4 +23,5 @@ p.s.
 
 ## Info
 
-Правим groups_vars/routers.yml, где указываем user и password, либо запускаем на выполнение playbook с аргументом **-k**, но указав user.
+ - Правим groups_vars/routers.yml, где указываем user и password, либо запускаем на выполнение playbook с аргументом **-k**, но указав user.
+ - Если у Вас несколько разных логинов и паролей то необходимо создать папку `host_vars` и в неё поместить файл ex. `10.10.0.28.yml` и в нём определить необходимые ansible_user и ansible_password
