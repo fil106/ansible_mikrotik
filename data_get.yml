@@ -1,0 +1,10 @@
+- name: "Получаем информацию с routers"
+  hosts: routers
+  gather_facts: False
+  tasks:
+    - name: "Системная команда"
+      routeros_command:
+        commands: /ip service print
+      register: system_print
+    - name: "Debug print"
+      debug: var=system_print.stdout_lines
