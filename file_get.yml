@@ -1,0 +1,17 @@
+- name: "Задание: Создать backup файл и скачать его с микротика, после удалить"
+  hosts: 10.10.0.29
+  gather_facts: False
+  tasks:
+    - set_fact:
+        file_name: "{{ ansible_host }}-{{ date }}"
+    - name: "Создаю backup файл..."
+      routeros_command:
+        commands: "/system backup save name={{ file_name }}"
+    - name: "Скачиваю backup файл в папку ./backups"
+      net_get:
+        src: "{{ file_name }}.backup"
+        protocol: sftp
+        dest: "./{{ file_name }}.backup"
+    - name: "Удаляю backup файл с микротика..."
+      routeros_command:
+        commands: "/file remove [find where name={{ file_name }}.backup]"
