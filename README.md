@@ -5,7 +5,7 @@
 ### Получаем информацию с микротика
 
 ```bash
-ansible-playbook date_get.yml
+ansible-playbook data_get.yml
 ```
 
 Правим данный playbook и пишем свою комманду
